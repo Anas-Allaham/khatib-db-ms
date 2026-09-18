@@ -8,12 +8,14 @@ import { BiopsyResultPolicyService } from './services/biopsy-result-policy.servi
 import { BiopsyAgentController } from './controllers/biopsy-agent.controller';
 import { BiopsyAdminController } from './controllers/biopsy-admin.controller';
 import { WebhookQueueModule } from 'src/modules/webhook/webhook-queue/webhook-queue.module';
+import { AccountModule } from 'src/modules/account/account.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Biopsy.name, schema: BiopsySchema }]),
     PatientModule,
     WebhookQueueModule,
+    AccountModule,
   ],
   controllers: [BiopsyAgentController, BiopsyAdminController],
   providers: [BiopsyRepository, BiopsyService, BiopsyResultPolicyService],

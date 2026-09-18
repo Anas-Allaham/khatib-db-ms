@@ -8,11 +8,13 @@ import { PatientVerificationService } from './services/patient-verification.serv
 import { PatientAgentController } from './controllers/patient-agent.controller';
 import { PatientAdminController } from './controllers/patient-admin.controller';
 import { WebhookQueueModule } from 'src/modules/webhook/webhook-queue/webhook-queue.module';
+import { AccountModule } from 'src/modules/account/account.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Patient.name, schema: PatientSchema }]),
     WebhookQueueModule,
+    AccountModule,
   ],
   controllers: [PatientAgentController, PatientAdminController],
   providers: [
