@@ -1,0 +1,12 @@
+[
+  {
+    "key": "WEBHOOK_RETRY_DELAY_MINUTES",
+    "value": "2",
+    "type": "number"
+  },
+  {
+    "key": "PATIENT_VERIFICATION_TOKEN_TTL_SECONDS",
+    "value": "300",
+    "type": "number"
+  }
+]

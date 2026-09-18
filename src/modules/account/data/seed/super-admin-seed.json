@@ -1,0 +1,6 @@
+{
+  "name": "SUPER_ADMIN",
+  "email": "admin@email.com",
+  "password": "12345678",
+  "role": "SUPER_ADMIN"
+}
