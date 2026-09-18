@@ -7,16 +7,36 @@ export type ResultDocument = HydratedDocument<Result>;
 
 @Schema({ timestamps: true })
 export class Result extends Document<Types.ObjectId> {
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Biopsy', required: true, index: true })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Biopsy',
+    required: true,
+    index: true,
+  })
   biopsy: Types.ObjectId;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Patient', required: true, index: true })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Patient',
+    required: true,
+    index: true,
+  })
   patient: Types.ObjectId;
 
-  @Prop({ required: true, enum: ResultStatus, default: ResultStatus.DRAFT, index: true })
+  @Prop({
+    type: String,
+    required: true,
+    enum: Object.values(ResultStatus),
+    default: ResultStatus.DRAFT,
+    index: true,
+  })
   status: ResultStatus;
 
-  @Prop({ required: true, enum: ResultClassification })
+  @Prop({
+    type: String,
+    required: true,
+    enum: Object.values(ResultClassification),
+  })
   classification: ResultClassification;
 
   @Prop({ required: false })
@@ -25,7 +45,12 @@ export class Result extends Document<Types.ObjectId> {
   @Prop({ required: false })
   issuedAt?: Date;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Tenant', required: true, index: true })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Tenant',
+    required: true,
+    index: true,
+  })
   tenant: Types.ObjectId;
 }
 
