@@ -1,16 +1,19 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { BiopsyStatus } from '../enums/biopsy-status.enum';
+import { ResultStatus } from '../enums/result-status.enum';
 import { PatientResultDisposition } from '../enums/patient-result-disposition.enum';
 
-export class PatientSafeBiopsyDto {
+export class PatientSafeResultDto {
+  @ApiProperty()
+  resultId: string;
+
   @ApiProperty()
   biopsyId: string;
 
   @ApiProperty()
   sampleNumber: string;
 
-  @ApiProperty({ enum: BiopsyStatus })
-  status: BiopsyStatus;
+  @ApiProperty({ enum: ResultStatus })
+  status: ResultStatus;
 
   @ApiProperty({ enum: PatientResultDisposition })
   disposition: PatientResultDisposition;

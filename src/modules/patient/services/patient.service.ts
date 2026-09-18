@@ -18,6 +18,10 @@ export class PatientService {
     });
   }
 
+  async findAll() {
+    return this._patientRepository.find({}, undefined, { sort: { createdAt: -1 } });
+  }
+
   async findById(id: Types.ObjectId) {
     return this._patientRepository.findOne({ _id: id });
   }

@@ -1,23 +1,11 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsDateString, IsEnum, IsOptional, IsString } from 'class-validator';
-import { BiopsyClassification } from '../enums/biopsy-classification.enum';
-import { BiopsyStatus } from '../enums/biopsy-status.enum';
+import { IsDateString, IsOptional, IsString } from 'class-validator';
 
 export class UpdateBiopsyDto {
-  @ApiPropertyOptional({ enum: BiopsyStatus })
-  @IsOptional()
-  @IsEnum(BiopsyStatus)
-  status?: BiopsyStatus;
-
-  @ApiPropertyOptional({ enum: BiopsyClassification })
-  @IsOptional()
-  @IsEnum(BiopsyClassification)
-  classification?: BiopsyClassification;
-
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
-  rawReport?: string;
+  sampleNumber?: string;
 
   @ApiPropertyOptional()
   @IsOptional()

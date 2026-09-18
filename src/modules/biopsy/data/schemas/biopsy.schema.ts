@@ -1,7 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document, HydratedDocument, Types } from 'mongoose';
-import { BiopsyStatus } from '../../enums/biopsy-status.enum';
-import { BiopsyClassification } from '../../enums/biopsy-classification.enum';
 
 export type BiopsyDocument = HydratedDocument<Biopsy>;
 
@@ -13,20 +11,8 @@ export class Biopsy extends Document<Types.ObjectId> {
   @Prop({ required: true, index: true })
   sampleNumber: string;
 
-  @Prop({ required: true, enum: BiopsyStatus, default: BiopsyStatus.PENDING, index: true })
-  status: BiopsyStatus;
-
-  @Prop({ required: false, enum: BiopsyClassification })
-  classification?: BiopsyClassification;
-
-  @Prop({ required: false })
-  rawReport?: string;
-
   @Prop({ required: false })
   expectedReadyAt?: Date;
-
-  @Prop({ required: false })
-  completedAt?: Date;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Tenant', required: true, index: true })
   tenant: Types.ObjectId;

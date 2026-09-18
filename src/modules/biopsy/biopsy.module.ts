@@ -4,21 +4,17 @@ import { PatientModule } from 'src/modules/patient/patient.module';
 import { Biopsy, BiopsySchema } from './data/schemas/biopsy.schema';
 import { BiopsyRepository } from './data/repositories/biopsy.repository';
 import { BiopsyService } from './services/biopsy.service';
-import { BiopsyResultPolicyService } from './services/biopsy-result-policy.service';
-import { BiopsyAgentController } from './controllers/biopsy-agent.controller';
 import { BiopsyAdminController } from './controllers/biopsy-admin.controller';
-import { WebhookQueueModule } from 'src/modules/webhook/webhook-queue/webhook-queue.module';
 import { AccountModule } from 'src/modules/account/account.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Biopsy.name, schema: BiopsySchema }]),
     PatientModule,
-    WebhookQueueModule,
     AccountModule,
   ],
-  controllers: [BiopsyAgentController, BiopsyAdminController],
-  providers: [BiopsyRepository, BiopsyService, BiopsyResultPolicyService],
+  controllers: [BiopsyAdminController],
+  providers: [BiopsyRepository, BiopsyService],
   exports: [BiopsyRepository, BiopsyService],
 })
 export class BiopsyModule {}

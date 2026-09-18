@@ -20,6 +20,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
 import { ScheduleModule } from '@nestjs/schedule';
 import { PatientModule } from './modules/patient/patient.module';
 import { BiopsyModule } from './modules/biopsy/biopsy.module';
+import { ResultModule } from './modules/result/result.module';
 
 
 @Module({
@@ -55,6 +56,7 @@ import { BiopsyModule } from './modules/biopsy/biopsy.module';
     ScheduleModule.forRoot(),
     PatientModule,
     BiopsyModule,
+    ResultModule,
   ],
   controllers: [AppController],
   providers: [AppService],

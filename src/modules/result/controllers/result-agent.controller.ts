@@ -5,15 +5,15 @@ import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authenti
 import { Permission } from 'src/modules/auth/tenant/decorators/permission.decorator';
 import { ParseObjectIdPipe } from 'src/common/pipes/parse-object-id.pipe';
 import { PatientVerificationService } from 'src/modules/patient/services/patient-verification.service';
-import { PatientSafeBiopsyDto } from '../dtos/patient-safe-biopsy.dto';
-import { BiopsyService } from '../services/biopsy.service';
+import { PatientSafeResultDto } from '../dtos/patient-safe-result.dto';
+import { ResultService } from '../services/result.service';
 
-@ApiTags('Biopsies - Agent')
-@Controller('biopsies')
+@ApiTags('Results - Agent')
+@Controller('results')
 @AuthenticationGuard('Tenant')
-export class BiopsyAgentController {
+export class ResultAgentController {
   constructor(
-    private readonly _biopsyService: BiopsyService,
+    private readonly _resultService: ResultService,
     private readonly _patientVerification: PatientVerificationService,
   ) {}
 
@@ -21,15 +21,16 @@ export class BiopsyAgentController {
   @Permission('BIOPSY_READ')
   @ApiHeader({ name: 'x-patient-verification-token', required: true })
   @ApiOperation({
-    summary: 'Get the latest patient-safe biopsy result after identity verification',
-    description: 'Critical/malignant clinical labels and raw report text are never exposed by this endpoint.',
+    summary: 'Get the latest patient-safe result after identity verification',
+    description:
+      'Returns the newest result across the patient biopsies. Critical/malignant clinical labels and raw report text are never exposed by this endpoint.',
   })
-  @ApiOkResponse({ type: PatientSafeBiopsyDto })
+  @ApiOkResponse({ type: PatientSafeResultDto })
   async latest(
     @Param('patientId', ParseObjectIdPipe) patientId: Types.ObjectId,
     @Headers('x-patient-verification-token') verificationToken?: string,
   ) {
     await this._patientVerification.assertVerified(patientId, verificationToken);
-    return this._biopsyService.latestForPatient(patientId);
+    return this._resultService.latestForPatient(patientId);
   }
 }
