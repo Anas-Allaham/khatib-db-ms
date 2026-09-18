@@ -18,7 +18,7 @@ export class WebhookQueue extends Document<Types.ObjectId> {
   @Prop({ type: Types.Map, default: {} })
   headers: any;
 
-  @Prop({ required: true, enum: WebhookQueueStatus, default: WebhookQueueStatus.PENDING })
+  @Prop({ type: String, required: true, enum: WebhookQueueStatus, default: WebhookQueueStatus.PENDING })
   status: WebhookQueueStatus;
 
   @Prop({ default: 0 })
