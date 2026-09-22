@@ -1,5 +1,5 @@
 import { Controller, Get, Headers, Param } from '@nestjs/common';
-import { ApiHeader, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiHeader, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
 import { Permission } from 'src/modules/auth/tenant/decorators/permission.decorator';
@@ -19,6 +19,11 @@ export class ResultAgentController {
 
   @Get(':patientId/latest')
   @Permission('BIOPSY_READ')
+  @ApiParam({
+    name: 'patientId',
+    type: String,
+    example: '6aad7cc0901445fd8de9f0f9',
+  })
   @ApiHeader({ name: 'x-patient-verification-token', required: true })
   @ApiOperation({
     summary: 'Get the latest patient-safe result after identity verification',
