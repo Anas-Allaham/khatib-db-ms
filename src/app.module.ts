@@ -21,6 +21,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { PatientModule } from './modules/patient/patient.module';
 import { BiopsyModule } from './modules/biopsy/biopsy.module';
 import { ResultModule } from './modules/result/result.module';
+import { ImageModule } from './modules/image/image.module';
 
 
 @Module({
@@ -57,6 +58,7 @@ import { ResultModule } from './modules/result/result.module';
     PatientModule,
     BiopsyModule,
     ResultModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
 import { IsTenantAdminGuard } from 'src/modules/auth/account/guards/is-tenant-admin.guard';
@@ -29,6 +29,7 @@ export class PatientAdminController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a patient by id under the authenticated lab tenant' })
+  @ApiParam({ name: 'id', type: String })
   @UseGuards(IsTenantAdminGuard)
   findOne(@Param('id', ParseObjectIdPipe) id: Types.ObjectId) {
     return this._patientService.requireById(id);

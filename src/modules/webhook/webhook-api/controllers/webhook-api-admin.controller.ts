@@ -90,6 +90,7 @@ export class WebhookApiAdminController {
     description:
       'Delete a tenant webhook configuration, Admin Authentication required.',
   })
+  @ApiParam({ name: 'id', type: String })
   @ApiOkResponse()
   @UseGuards(IsTenantAdminGuard)
   async delete(@Param('id') id: Types.ObjectId) {

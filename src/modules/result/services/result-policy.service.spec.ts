@@ -10,6 +10,7 @@ function result(overrides: Record<string, any> = {}): any {
     status: ResultStatus.FINAL,
     classification: ResultClassification.BENIGN,
     rawReport: 'raw pathology text',
+    imageURL: 'https://example.com/reports/report-image.jpg',
     ...overrides,
   };
 }
@@ -26,6 +27,7 @@ describe('ResultPolicyService', () => {
     );
 
     expect(output.disposition).toBe(PatientResultDisposition.PENDING);
+    expect(output.imageURL).toBe('https://example.com/reports/report-image.jpg');
     expect(output).not.toHaveProperty('rawReport');
     expect(output).not.toHaveProperty('classification');
   });
@@ -34,6 +36,7 @@ describe('ResultPolicyService', () => {
     const output = service.toPatientSafeResult(result(), biopsyContext);
 
     expect(output.disposition).toBe(PatientResultDisposition.BENIGN);
+    expect(output.imageURL).toBe('https://example.com/reports/report-image.jpg');
     expect(output).not.toHaveProperty('rawReport');
   });
 
@@ -46,6 +49,7 @@ describe('ResultPolicyService', () => {
       );
 
       expect(output.disposition).toBe(PatientResultDisposition.CLINICIAN_REVIEW_REQUIRED);
+      expect(output.imageURL).toBe('https://example.com/reports/report-image.jpg');
       expect(JSON.stringify(output)).not.toContain(classification);
       expect(JSON.stringify(output)).not.toContain('raw pathology text');
     },

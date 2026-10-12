@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
 import { IsTenantAdminGuard } from 'src/modules/auth/account/guards/is-tenant-admin.guard';
@@ -31,6 +31,7 @@ export class ResultAdminController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get the raw result record for an authenticated lab admin' })
+  @ApiParam({ name: 'id', type: String })
   @UseGuards(IsTenantAdminGuard)
   findOne(@Param('id', ParseObjectIdPipe) id: Types.ObjectId) {
     return this._resultService.findOneForAdmin(id);
@@ -38,6 +39,7 @@ export class ResultAdminController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update a result status or clinical classification' })
+  @ApiParam({ name: 'id', type: String })
   @UseGuards(IsTenantAdminGuard)
   update(
     @Param('id', ParseObjectIdPipe) id: Types.ObjectId,

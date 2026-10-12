@@ -18,6 +18,7 @@ export class ResultPolicyService {
       biopsyId: result.biopsy.toString(),
       sampleNumber: biopsy.sampleNumber,
       status: result.status,
+      ...(result.imageURL ? { imageURL: result.imageURL } : {}),
     };
 
     // A result that is not finalized is treated as still pending for the patient.
@@ -49,7 +50,7 @@ export class ResultPolicyService {
       ...base,
       disposition: PatientResultDisposition.CLINICIAN_REVIEW_REQUIRED,
       patientMessage:
-        'نتيجتك جاهزة، ولكنها تتطلب مراجعة الطبيب المختص لشرح التفاصيل الطبية بدقة. هل أساعدك في حجز موعد في العيادة؟',
+        'نتيجتك جاهزة، ولكنها تتطلب مراجعة الطبيب المختص لشرح التفاصيل الطبية بدقة.',
     };
   }
 }

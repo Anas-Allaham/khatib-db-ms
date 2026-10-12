@@ -42,6 +42,9 @@ export class Result extends Document<Types.ObjectId> {
   @Prop({ required: false })
   rawReport?: string;
 
+  @Prop({ type: String, required: false })
+  imageURL?: string;
+
   @Prop({ required: false })
   issuedAt?: Date;
 

@@ -21,6 +21,12 @@ export class PatientSafeResultDto {
   @ApiPropertyOptional()
   expectedReadyAt?: Date;
 
+  @ApiPropertyOptional({
+    description: "URL of the patient's medical report image.",
+    format: 'uri',
+  })
+  imageURL?: string;
+
   @ApiProperty({
     example: 'نتيجتك جاهزة، ولكنها تتطلب مراجعة الطبيب المختص لشرح التفاصيل الطبية بدقة. هل أساعدك في حجز موعد في العيادة؟',
   })

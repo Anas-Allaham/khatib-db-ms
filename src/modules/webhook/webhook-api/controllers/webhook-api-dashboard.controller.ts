@@ -73,6 +73,7 @@ export class WebhookApiDashboardController {
   }
 
   @Delete(':id')
+  @ApiParam({ name: 'id', type: String })
   @ApiOkResponse({ type: WebhookDto })
   @UseGuards(IsSuperAdminGuard)
   async delete(@Param('id') id: Types.ObjectId) {

@@ -32,6 +32,7 @@ export class ResultService {
       status: data.status,
       classification: data.classification,
       rawReport: data.rawReport,
+      imageURL: data.imageURL,
       issuedAt: data.status === ResultStatus.FINAL ? new Date() : undefined,
     });
 

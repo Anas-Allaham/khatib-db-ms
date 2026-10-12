@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Types } from 'mongoose';
 import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
 import { IsTenantAdminGuard } from 'src/modules/auth/account/guards/is-tenant-admin.guard';
@@ -24,6 +24,7 @@ export class BiopsyAdminController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update a biopsy status or clinical result' })
+  @ApiParam({ name: 'id', type: String })
   @UseGuards(IsTenantAdminGuard)
   update(
     @Param('id', ParseObjectIdPipe) id: Types.ObjectId,
@@ -41,6 +42,7 @@ export class BiopsyAdminController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get the raw biopsy record for an authenticated lab admin' })
+  @ApiParam({ name: 'id', type: String })
   @UseGuards(IsTenantAdminGuard)
   findOne(@Param('id', ParseObjectIdPipe) id: Types.ObjectId) {
     return this._biopsyService.findOneForAdmin(id);

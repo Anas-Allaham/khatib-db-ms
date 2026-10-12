@@ -9,6 +9,7 @@ import { setupRedoc } from './common/utils/docs';
 import { MongooseExceptionFilter } from './common/error-handling/mongoose-exception.filter';
 import { SwaggerAuthMiddleware } from './common/middlewares/swagger-auth.middleware';
 import { ValidationPipe } from '@nestjs/common';
+import { IMAGE_PUBLIC_PREFIX, IMAGE_UPLOAD_ROOT } from './modules/image/constants/image-upload.constants';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -19,6 +20,12 @@ async function bootstrap() {
   app.useGlobalFilters(new MongooseExceptionFilter());
 
   app.enableCors();
+  app.useStaticAssets(IMAGE_UPLOAD_ROOT, {
+    prefix: IMAGE_PUBLIC_PREFIX,
+    index: false,
+    dotfiles: 'deny',
+    setHeaders: (res) => res.setHeader('X-Content-Type-Options', 'nosniff'),
+  });
 
   enableVersioning(app);
 

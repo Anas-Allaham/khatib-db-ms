@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsMongoId, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsMongoId, IsOptional, IsString, IsUrl } from 'class-validator';
 import { ResultClassification } from '../enums/result-classification.enum';
 import { ResultStatus } from '../enums/result-status.enum';
 
@@ -20,4 +20,12 @@ export class CreateResultDto {
   @IsOptional()
   @IsString()
   rawReport?: string;
+
+  @ApiPropertyOptional({
+    description: "URL of the patient's medical report image.",
+    format: 'uri',
+  })
+  @IsOptional()
+  @IsUrl({ require_tld: false })
+  imageURL?: string;
 }
