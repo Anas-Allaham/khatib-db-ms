@@ -13,12 +13,20 @@ export class AccountSeed {
   ) { }
 
   private async createSuperAdmin() {
-    const account = await this._accountGetter.findByEmail(SUPER_ADMIN.email)
+    if (process.env.NODE_ENV === 'production' && !process.env.SUPER_ADMIN_PASSWORD) {
+      console.log('Skipping super admin seed: SUPER_ADMIN_PASSWORD must be set in production.');
+      return;
+    }
+
+    const email = process.env.SUPER_ADMIN_EMAIL || SUPER_ADMIN.email;
+    const password = process.env.SUPER_ADMIN_PASSWORD || SUPER_ADMIN.password;
+
+    const account = await this._accountGetter.findByEmail(email)
     if (!account) {
       await this._accountCreator.create({
         name: SUPER_ADMIN.name,
-        password: SUPER_ADMIN.password,
-        email: SUPER_ADMIN.email,
+        password,
+        email,
         role: SUPER_ADMIN.role as EAccountRole
       })
     }
