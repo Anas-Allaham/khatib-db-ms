@@ -203,10 +203,10 @@ Never reuse the same secret between account, tenant, and patient-verification to
 ```bash
 npm install
 npm run build
-npm run seed:app-config
-npm run seed:account
 npm run start:dev
 ```
+
+Booting the app runs the app-config and super-admin seeds (both idempotent). `npm run seed:app-config` and `npm run seed:account` still run them on their own.
 
 Swagger and Redoc are configured by the inherited starter bootstrap.
 

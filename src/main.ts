@@ -12,9 +12,15 @@ import { ValidationPipe } from '@nestjs/common';
 import { IMAGE_PUBLIC_PREFIX, IMAGE_UPLOAD_ROOT } from './modules/image/constants/image-upload.constants';
 import type { Express } from 'express';
 import type { IncomingMessage, ServerResponse } from 'http';
+import { AppConfigSeed } from './modules/app-config/data/seed/app-config.seed';
+import { AccountSeed } from './modules/account/data/seed/account.seed';
 
 async function createApp() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  // Seeds are idempotent. They run before init so SynAppConfigService caches the seeded app config.
+  await app.get(AppConfigSeed).run();
+  await app.get(AccountSeed).run();
   app.set('query parser', 'extended');
 
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));

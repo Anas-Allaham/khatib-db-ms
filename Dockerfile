@@ -20,5 +20,5 @@ COPY package.json ./
 # Uploaded images are written here; mount a persistent volume at /app/uploads so they survive redeploys.
 RUN mkdir -p uploads/images
 EXPOSE 3000
-# Both seeds are idempotent, so they run on every start before the server boots.
-CMD ["sh", "-c", "node dist/prod/cli seed:app-config && node dist/prod/cli seed:account && exec node dist/prod/main"]
+# main seeds app config and the super admin on every boot (both seeds are idempotent).
+CMD ["node", "dist/prod/main"]
