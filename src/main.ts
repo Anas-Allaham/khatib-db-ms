@@ -10,8 +10,10 @@ import { MongooseExceptionFilter } from './common/error-handling/mongoose-except
 import { SwaggerAuthMiddleware } from './common/middlewares/swagger-auth.middleware';
 import { ValidationPipe } from '@nestjs/common';
 import { IMAGE_PUBLIC_PREFIX, IMAGE_UPLOAD_ROOT } from './modules/image/constants/image-upload.constants';
+import type { Express } from 'express';
+import type { IncomingMessage, ServerResponse } from 'http';
 
-async function bootstrap() {
+async function createApp() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.set('query parser', 'extended');
 
@@ -29,15 +31,35 @@ async function bootstrap() {
 
   enableVersioning(app);
 
-  const configService = app.get(ConfigService);
-  const port = +configService.get('PORT');
-
   app.use('/swagger', new SwaggerAuthMiddleware().use);
   swagger(app);
   await setupRedoc(app)
   setupMorganLogger(app);
 
+  return app;
+}
+
+async function bootstrap() {
+  const app = await createApp();
+  const configService = app.get(ConfigService);
+  const port = +configService.get('PORT');
+
   await app.listen(port);
   console.log(`The application is listening on port ${port}`);
 }
-bootstrap();
+
+// Vercel imports this file as a serverless function and calls the default export per request,
+// so the app is initialised once per instance instead of listening on a port.
+let server: Promise<Express> | undefined;
+
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
+  server ??= createApp().then(async (app) => {
+    await app.init();
+    return app.getHttpAdapter().getInstance() as Express;
+  });
+  (await server)(req, res);
+}
+
+if (!process.env.VERCEL) {
+  bootstrap();
+}
