@@ -5,8 +5,8 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { AccountRequest } from '../../../account/interfaces/account-request.interface';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
-import { EAccountRole } from 'src/modules/account/enums/account-role.enum';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
+import { EAccountRole } from '../../../account/enums/account-role.enum';
 
 @Injectable()
 export class IsTenantAdminGuard implements CanActivate {

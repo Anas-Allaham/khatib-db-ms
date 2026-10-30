@@ -10,9 +10,9 @@ import { Request } from 'express';
 import { AccountRequest } from '../../../account/interfaces/account-request.interface';
 import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from '../../tenant/decorators';
-import { TenantContext } from 'src/common/context/tenant.context';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
-import { AccountDto } from 'src/modules/account/dtos/account.dto';
+import { TenantContext } from '../../../../common/context/tenant.context';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
+import { AccountDto } from '../../../account/dtos/account.dto';
 
 @Injectable()
 export class AccountAuthGuard implements CanActivate {

@@ -8,10 +8,10 @@ import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from '../decorators';
-import { TenantDto } from 'src/modules/tenant/tenant-api/dtos/tenant.dto';
-import { TenantContext } from 'src/common/context/tenant.context';
-import { TenantRequest } from 'src/modules/tenant/tenant/interfaces/tenant-request.interface';
-import { TenantGetterService } from 'src/modules/tenant/tenant/services/tenant-getter.service';
+import { TenantDto } from '../../../tenant/tenant-api/dtos/tenant.dto';
+import { TenantContext } from '../../../../common/context/tenant.context';
+import { TenantRequest } from '../../../tenant/tenant/interfaces/tenant-request.interface';
+import { TenantGetterService } from '../../../tenant/tenant/services/tenant-getter.service';
 
 @Injectable()
 export class TenantAuthGuard implements CanActivate {

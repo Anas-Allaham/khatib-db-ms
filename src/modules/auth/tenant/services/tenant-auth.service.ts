@@ -1,11 +1,11 @@
 import { Injectable, Scope, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { TenantDto } from 'src/modules/tenant/tenant-api/dtos/tenant.dto';
-import { HashService } from 'src/common/services/hash.service';
+import { TenantDto } from '../../../tenant/tenant-api/dtos/tenant.dto';
+import { HashService } from '../../../../common/services/hash.service';
 import { TenantLoginDto } from '../dtos/tenant-login.dto';
 import { IAuthService } from '../../common/interfaces/auth-service.interface';
-import { TenantGetterService } from 'src/modules/tenant/tenant/services/tenant-getter.service';
+import { TenantGetterService } from '../../../tenant/tenant/services/tenant-getter.service';
 import { TenantRefreshTokenDto } from '../dtos/tenant-refresh-token.dto';
 import { RefreshTokenDto } from '../../common/dtos/refresh-token.dto';
 

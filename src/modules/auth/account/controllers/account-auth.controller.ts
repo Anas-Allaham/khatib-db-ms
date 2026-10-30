@@ -3,10 +3,10 @@ import { ApiTags } from '@nestjs/swagger';
 import { AccountAuthApiService } from './account-auth-api.service';
 import { AccountLoginDto } from '../dtos/account-login.dto';
 import { SkipAuth } from '../../tenant/decorators';
-import { AccountDto } from 'src/modules/account/dtos/account.dto';
+import { AccountDto } from '../../../account/dtos/account.dto';
 import { AccountResetPasswordDto } from '../dtos/account-reset-password.dto';
 import { AuthenticationGuard } from '../../common/decorators/authentication.decorator';
-import { ReqAccount } from 'src/modules/account/decorators/req-account.decorator';
+import { ReqAccount } from '../../../account/decorators/req-account.decorator';
 import { IsTenantAdminGuard } from '../guards/is-tenant-admin.guard';
 
 @ApiTags('Account Auth')

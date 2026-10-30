@@ -1,5 +1,5 @@
 import { Controller, Get, Body, Patch } from '@nestjs/common';
-import { RedocExcludeController } from 'src/common/decorators/exclude-from-redoc.decorator';
+import { RedocExcludeController } from '../../common/decorators/exclude-from-redoc.decorator';
 import { UpdateAppConfigDto } from './dto/update-app-config.dto';
 import { AppConfigApiDashboardService } from './app-config-api-dashboard.service';
 import { ApiTags } from '@nestjs/swagger';

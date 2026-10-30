@@ -13,13 +13,13 @@ import { UpdateWebhookDto } from '../dtos/update-webhook.dto';
 import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { WebhookDto } from '../dtos/webhook.dto';
 import { Types } from 'mongoose';
-import { ParseObjectIdPipe } from 'src/common/pipes/parse-object-id.pipe';
+import { ParseObjectIdPipe } from '../../../../common/pipes/parse-object-id.pipe';
 import { WebhookApiDashboardService } from './webhook-api-dashboard.service';
 import { CreateWebhookDashboardDto } from '../dtos/create-webhook-dashboard.dto';
 import { WebhookDashboardFilter } from '../dtos/webhook-dashboard-filter.dto';
-import { IsSuperAdminGuard } from 'src/modules/auth/account/guards/is-super-admin.guard';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { RedocExcludeController } from 'src/common/decorators';
+import { IsSuperAdminGuard } from '../../../auth/account/guards/is-super-admin.guard';
+import { AuthenticationGuard } from '../../../auth/common/decorators/authentication.decorator';
+import { RedocExcludeController } from '../../../../common/decorators';
 import { CreateWebhookQueueDto } from '../dtos/create-webhook-queue.dto';
 
 @ApiTags('Webhooks - Dashboard')

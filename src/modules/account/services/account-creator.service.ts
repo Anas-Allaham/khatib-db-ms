@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ClientSession, Types } from 'mongoose';
-import { HashService } from 'src/common/services/hash.service';
+import { HashService } from '../../../common/services/hash.service';
 import { EAccountRole } from '../enums/account-role.enum';
 import { AccountRepository } from '../data/repositories/account.repository';
 

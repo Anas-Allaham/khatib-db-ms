@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Types } from 'mongoose';
 import { BiopsyRepository } from '../data/repositories/biopsy.repository';
-import { PatientService } from 'src/modules/patient/services/patient.service';
+import { PatientService } from '../../patient/services/patient.service';
 import { CreateBiopsyDto } from '../dtos/create-biopsy.dto';
 import { UpdateBiopsyDto } from '../dtos/update-biopsy.dto';
 

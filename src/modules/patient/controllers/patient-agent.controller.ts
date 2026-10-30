@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { Permission } from 'src/modules/auth/tenant/decorators/permission.decorator';
+import { AuthenticationGuard } from '../../auth/common/decorators/authentication.decorator';
+import { Permission } from '../../auth/tenant/decorators/permission.decorator';
 import { VerifyPatientDto } from '../dtos/verify-patient.dto';
 import { VerifyPatientResponseDto } from '../dtos/verify-patient-response.dto';
 import { PatientVerificationService } from '../services/patient-verification.service';

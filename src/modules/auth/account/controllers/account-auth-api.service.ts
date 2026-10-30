@@ -1,16 +1,16 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { AccountLoginDto } from '../dtos/account-login.dto';
-import { SecretKeyGeneratorService } from 'src/common/services/secret-key-generator.service';
+import { SecretKeyGeneratorService } from '../../../../common/services/secret-key-generator.service';
 import { AccountAuthService } from '../services/account-auth.service';
-import { AccountDto } from 'src/modules/account/dtos/account.dto';
-import { AccountRepository } from 'src/modules/account/data/repositories/account.repository';
+import { AccountDto } from '../../../account/dtos/account.dto';
+import { AccountRepository } from '../../../account/data/repositories/account.repository';
 import { AccountResetPasswordDto } from '../dtos/account-reset-password.dto';
 import { AccountPasswordVerifierService } from '../services/account-password-verifier.service';
 import { AccountPasswordResetterService } from '../services/account-password-resetter.service';
-import { BaseResponseDto } from 'src/common/dtos/base-response.dto';
-import { TenantRepository } from 'src/modules/tenant/tenant/data/repositories/tenant.repository';
-import { Tenant } from 'src/modules/tenant/tenant/data/schemas/tenants-entity.schema';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
+import { BaseResponseDto } from '../../../../common/dtos/base-response.dto';
+import { TenantRepository } from '../../../tenant/tenant/data/repositories/tenant.repository';
+import { Tenant } from '../../../tenant/tenant/data/schemas/tenants-entity.schema';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
 
 @Injectable()
 export class AccountAuthApiService {

@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException, Scope, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { AccountLoginDto } from '../dtos/account-login.dto';
-import { AccountDto } from 'src/modules/account/dtos/account.dto';
+import { AccountDto } from '../../../account/dtos/account.dto';
 import { IAuthService } from '../../common/interfaces/auth-service.interface';
 import { AccountPasswordVerifierService } from './account-password-verifier.service';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
 import { AccountLoginResponseDto } from '../dtos/account-login-response.dto';
 import { ConfigService } from '@nestjs/config';
 

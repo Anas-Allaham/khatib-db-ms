@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { PatientModule } from 'src/modules/patient/patient.module';
+import { PatientModule } from '../patient/patient.module';
 import { Biopsy, BiopsySchema } from './data/schemas/biopsy.schema';
 import { BiopsyRepository } from './data/repositories/biopsy.repository';
 import { BiopsyService } from './services/biopsy.service';
 import { BiopsyAdminController } from './controllers/biopsy-admin.controller';
-import { AccountModule } from 'src/modules/account/account.module';
+import { AccountModule } from '../account/account.module';
 
 @Module({
   imports: [

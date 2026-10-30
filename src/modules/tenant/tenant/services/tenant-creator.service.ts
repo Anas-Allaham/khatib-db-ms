@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ClientSession, Types } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
-import { SecretKeyGeneratorService } from 'src/common/services/secret-key-generator.service';
+import { SecretKeyGeneratorService } from '../../../../common/services/secret-key-generator.service';
 import { ETenantPermission } from '../enums';
 import { TenantRepository } from '../data/repositories/tenant.repository';
 

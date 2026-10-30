@@ -6,10 +6,10 @@ import { ResultService } from './services/result.service';
 import { ResultPolicyService } from './services/result-policy.service';
 import { ResultAdminController } from './controllers/result-admin.controller';
 import { ResultAgentController } from './controllers/result-agent.controller';
-import { BiopsyModule } from 'src/modules/biopsy/biopsy.module';
-import { PatientModule } from 'src/modules/patient/patient.module';
-import { WebhookQueueModule } from 'src/modules/webhook/webhook-queue/webhook-queue.module';
-import { AccountModule } from 'src/modules/account/account.module';
+import { BiopsyModule } from '../biopsy/biopsy.module';
+import { PatientModule } from '../patient/patient.module';
+import { WebhookQueueModule } from '../webhook/webhook-queue/webhook-queue.module';
+import { AccountModule } from '../account/account.module';
 
 @Module({
   imports: [

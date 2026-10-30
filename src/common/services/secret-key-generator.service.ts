@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as crypto from 'crypto';
-import { HashService } from 'src/common/services/hash.service';
+import { HashService } from './hash.service';
 
 @Injectable()
 export class SecretKeyGeneratorService {

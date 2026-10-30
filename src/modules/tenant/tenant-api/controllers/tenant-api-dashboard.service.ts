@@ -1,16 +1,16 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { AccountCreatorService } from 'src/modules/account/services/account-creator.service';
-import { MongoTransactionService } from 'src/common/services/mongo-transaction.service';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
+import { AccountCreatorService } from '../../../account/services/account-creator.service';
+import { MongoTransactionService } from '../../../../common/services/mongo-transaction.service';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
 import { TenantCreatorService } from '../../tenant/services/tenant-creator.service';
 import { TenantGetterService } from '../../tenant/services/tenant-getter.service';
 import { CreateTenantDto } from '../dtos/create-tenant.dto';
 import { Types } from 'mongoose';
 import { Tenant } from '../../tenant/data/schemas/tenants-entity.schema';
-import { AccountRepository } from 'src/modules/account/data/repositories/account.repository';
-import { SecretKeyGeneratorService } from 'src/common/services/secret-key-generator.service';
+import { AccountRepository } from '../../../account/data/repositories/account.repository';
+import { SecretKeyGeneratorService } from '../../../../common/services/secret-key-generator.service';
 import { TenantRepository } from '../../tenant/data/repositories/tenant.repository';
-import { AccountPasswordResetterService } from 'src/modules/auth/account/services/account-password-resetter.service';
+import { AccountPasswordResetterService } from '../../../auth/account/services/account-password-resetter.service';
 
 @Injectable()
 export class TenantDashboardApiService {

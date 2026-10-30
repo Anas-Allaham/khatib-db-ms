@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Properties } from 'src/common/utils/properties.utils';
+import { Properties } from '../../../../common/utils/properties.utils';
 import { Types } from 'mongoose';
 
 export class TenantDto {

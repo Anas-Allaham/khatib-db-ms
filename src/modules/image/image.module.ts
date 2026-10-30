@@ -5,7 +5,7 @@ import { ImageRepository } from './data/repositories/image.repository';
 import { ImageService } from './services/image.service';
 import { ImageStorageService } from './services/image-storage.service';
 import { ImageAdminController } from './controllers/image-admin.controller';
-import { AccountModule } from 'src/modules/account/account.module';
+import { AccountModule } from '../account/account.module';
 
 @Module({
   imports: [

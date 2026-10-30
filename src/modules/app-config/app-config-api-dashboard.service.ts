@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { UpdateAppConfigDto } from './dto/update-app-config.dto';
-import { SynAppConfigService } from 'src/common/app-config/services/sync-app-config.service';
+import { SynAppConfigService } from '../../common/app-config/services/sync-app-config.service';
 import { AppConfigRepository } from './data/repositories/app-config.repository';
 
 @Injectable()

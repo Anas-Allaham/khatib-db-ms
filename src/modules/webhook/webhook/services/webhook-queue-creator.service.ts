@@ -5,8 +5,8 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { WebhookQueueRepository } from '../data/repositories/webhook-queue.repository';
 import { WebhookQueueStatus } from '../enums/webhook-queue-status.enum';
 import { WEBHOOK_PROCESS } from '../constraints/webhook-event.constraint';
-import { AppConfigService } from 'src/common/app-config/services/app-config.service';
-import { SettingKeys } from 'src/common/app-config/enums/settings-keys.enum';
+import { AppConfigService } from '../../../../common/app-config/services/app-config.service';
+import { SettingKeys } from '../../../../common/app-config/enums/settings-keys.enum';
 
 @Injectable()
 export class WebhookQueueCreatorService {

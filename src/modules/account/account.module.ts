@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AccountCreatorService } from './services/account-creator.service';
 import { AccountGetterService } from './services/account-getter.service';
 import { AccountRepository } from './data/repositories/account.repository';
-import { Account, AccountSchema } from 'src/modules/account/data/schemas/account-entity.schema';
+import { Account, AccountSchema } from './data/schemas/account-entity.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AccountSeed } from './data/seed/account.seed';
 

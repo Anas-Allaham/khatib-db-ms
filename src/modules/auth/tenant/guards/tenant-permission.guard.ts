@@ -7,9 +7,9 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
-import { TenantContext } from 'src/common/context/tenant.context';
-import { ETenantPermission } from 'src/modules/tenant/tenant/enums';
-import { TenantGetterService } from 'src/modules/tenant/tenant/services/tenant-getter.service';
+import { TenantContext } from '../../../../common/context/tenant.context';
+import { ETenantPermission } from '../../../tenant/tenant/enums';
+import { TenantGetterService } from '../../../tenant/tenant/services/tenant-getter.service';
 
 @Injectable()
 export class TenantPermissionGuard implements CanActivate {

@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { AccountPasswordResetterService } from '../services/account-password-resetter.service';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
 import { Types } from 'mongoose';
 import { DashboardAccountResetPasswordDto } from '../dtos/dashboard-account-reset-password.dto';
-import { BaseResponseDto } from 'src/common/dtos/base-response.dto';
+import { BaseResponseDto } from '../../../../common/dtos/base-response.dto';
 
 @Injectable()
 export class AccountDashboardApiService {

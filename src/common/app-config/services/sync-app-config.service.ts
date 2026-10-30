@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { AppConfigRepository } from 'src/modules/app-config/data/repositories/app-config.repository';
+import { AppConfigRepository } from '../../../modules/app-config/data/repositories/app-config.repository';
 
 @Injectable()
 export class SynAppConfigService implements OnModuleInit {

@@ -1,15 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Types } from 'mongoose';
 import { ResultRepository } from '../data/repositories/result.repository';
-import { BiopsyService } from 'src/modules/biopsy/services/biopsy.service';
-import { PatientService } from 'src/modules/patient/services/patient.service';
+import { BiopsyService } from '../../biopsy/services/biopsy.service';
+import { PatientService } from '../../patient/services/patient.service';
 import { ResultPolicyService } from './result-policy.service';
 import { CreateResultDto } from '../dtos/create-result.dto';
 import { UpdateResultDto } from '../dtos/update-result.dto';
 import { ResultStatus } from '../enums/result-status.enum';
 import { Result } from '../data/schemas/result.schema';
-import { ClinicalWebhookPublisherService } from 'src/modules/webhook/webhook-queue/services/clinical-webhook-publisher.service';
-import { WebhookEvents } from 'src/modules/webhook/webhook/enums/webhook-events.enum';
+import { ClinicalWebhookPublisherService } from '../../webhook/webhook-queue/services/clinical-webhook-publisher.service';
+import { WebhookEvents } from '../../webhook/webhook/enums/webhook-events.enum';
 
 @Injectable()
 export class ResultService {

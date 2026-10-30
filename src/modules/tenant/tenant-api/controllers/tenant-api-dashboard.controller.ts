@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { TenantDashboardApiService } from './tenant-api-dashboard.service';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { IsSuperAdminGuard } from 'src/modules/auth/account/guards/is-super-admin.guard';
+import { AuthenticationGuard } from '../../../auth/common/decorators/authentication.decorator';
+import { IsSuperAdminGuard } from '../../../auth/account/guards/is-super-admin.guard';
 import { CreateTenantDto } from '../dtos/create-tenant.dto';
 import { Types } from 'mongoose';
 

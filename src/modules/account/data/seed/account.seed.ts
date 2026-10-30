@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Command } from 'nestjs-command';
 import SUPER_ADMIN from './super-admin-seed.json'
-import { AccountCreatorService } from 'src/modules/account/services/account-creator.service';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
-import { EAccountRole } from 'src/modules/account/enums/account-role.enum';
+import { AccountCreatorService } from '../../services/account-creator.service';
+import { AccountGetterService } from '../../services/account-getter.service';
+import { EAccountRole } from '../../enums/account-role.enum';
 
 @Injectable()
 export class AccountSeed {

@@ -1,10 +1,10 @@
 import { Controller, Get, Headers, Param } from '@nestjs/common';
 import { ApiHeader, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Types } from 'mongoose';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { Permission } from 'src/modules/auth/tenant/decorators/permission.decorator';
-import { ParseObjectIdPipe } from 'src/common/pipes/parse-object-id.pipe';
-import { PatientVerificationService } from 'src/modules/patient/services/patient-verification.service';
+import { AuthenticationGuard } from '../../auth/common/decorators/authentication.decorator';
+import { Permission } from '../../auth/tenant/decorators/permission.decorator';
+import { ParseObjectIdPipe } from '../../../common/pipes/parse-object-id.pipe';
+import { PatientVerificationService } from '../../patient/services/patient-verification.service';
 import { PatientSafeResultDto } from '../dtos/patient-safe-result.dto';
 import { ResultService } from '../services/result.service';
 

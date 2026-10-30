@@ -7,8 +7,8 @@ import { PatientNameNormalizerService } from './services/patient-name-normalizer
 import { PatientVerificationService } from './services/patient-verification.service';
 import { PatientAgentController } from './controllers/patient-agent.controller';
 import { PatientAdminController } from './controllers/patient-admin.controller';
-import { WebhookQueueModule } from 'src/modules/webhook/webhook-queue/webhook-queue.module';
-import { AccountModule } from 'src/modules/account/account.module';
+import { WebhookQueueModule } from '../webhook/webhook-queue/webhook-queue.module';
+import { AccountModule } from '../account/account.module';
 
 @Module({
   imports: [

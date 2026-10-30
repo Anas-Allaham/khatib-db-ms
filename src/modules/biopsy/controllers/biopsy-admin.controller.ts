@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Types } from 'mongoose';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { IsTenantAdminGuard } from 'src/modules/auth/account/guards/is-tenant-admin.guard';
-import { ParseObjectIdPipe } from 'src/common/pipes/parse-object-id.pipe';
+import { AuthenticationGuard } from '../../auth/common/decorators/authentication.decorator';
+import { IsTenantAdminGuard } from '../../auth/account/guards/is-tenant-admin.guard';
+import { ParseObjectIdPipe } from '../../../common/pipes/parse-object-id.pipe';
 import { CreateBiopsyDto } from '../dtos/create-biopsy.dto';
 import { UpdateBiopsyDto } from '../dtos/update-biopsy.dto';
 import { ListBiopsiesQueryDto } from '../dtos/list-biopsies-query.dto';

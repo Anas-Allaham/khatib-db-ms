@@ -2,14 +2,14 @@ import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { Types } from 'mongoose';
-import { TenantContext } from 'src/common/context/tenant.context';
+import { TenantContext } from '../../../common/context/tenant.context';
 import { PatientService } from './patient.service';
 import { VerifyPatientDto } from '../dtos/verify-patient.dto';
 import { PatientVerificationMethod } from '../enums/patient-verification-method.enum';
-import { AppConfigService } from 'src/common/app-config/services/app-config.service';
-import { SettingKeys } from 'src/common/app-config/enums/settings-keys.enum';
-import { ClinicalWebhookPublisherService } from 'src/modules/webhook/webhook-queue/services/clinical-webhook-publisher.service';
-import { WebhookEvents } from 'src/modules/webhook/webhook/enums/webhook-events.enum';
+import { AppConfigService } from '../../../common/app-config/services/app-config.service';
+import { SettingKeys } from '../../../common/app-config/enums/settings-keys.enum';
+import { ClinicalWebhookPublisherService } from '../../webhook/webhook-queue/services/clinical-webhook-publisher.service';
+import { WebhookEvents } from '../../webhook/webhook/enums/webhook-events.enum';
 
 interface PatientVerificationPayload {
   patientId: string;

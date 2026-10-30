@@ -3,7 +3,7 @@ import { AccountAuthController } from './controllers/account-auth.controller';
 import { AccountAuthApiService } from './controllers/account-auth-api.service';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AccountModule } from 'src/modules/account/account.module';
+import { AccountModule } from '../../account/account.module';
 import { AccountAuthService } from './services/account-auth.service';
 import { AccountPasswordResetterService } from './services/account-password-resetter.service';
 import { AccountPasswordVerifierService } from './services/account-password-verifier.service';

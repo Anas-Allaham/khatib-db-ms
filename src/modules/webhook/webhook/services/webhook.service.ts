@@ -3,7 +3,7 @@ import { FilterQuery, PipelineStage, Types } from 'mongoose';
 import { WebhookRepository } from '../data/repositories/webhook.repository';
 import { Webhook } from '../data/schemas/webhook.schema';
 import { WebhookEvents } from '../enums/webhook-events.enum';
-import { PaginationListDto } from 'src/common/pagination/pagination-list.dto';
+import { PaginationListDto } from '../../../../common/pagination/pagination-list.dto';
 
 @Injectable()
 export class WebhookService {

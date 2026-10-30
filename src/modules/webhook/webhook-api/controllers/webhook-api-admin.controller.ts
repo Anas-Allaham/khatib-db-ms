@@ -19,11 +19,11 @@ import {
 } from '@nestjs/swagger';
 import { WebhookDto } from '../dtos/webhook.dto';
 import { Types } from 'mongoose';
-import { ParseObjectIdPipe } from 'src/common/pipes/parse-object-id.pipe';
+import { ParseObjectIdPipe } from '../../../../common/pipes/parse-object-id.pipe';
 import { WebhookApiAdminService } from './webhook-api-admin.service';
 import { WebhookFilter } from '../dtos/webhook-filter.dto';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { IsTenantAdminGuard } from 'src/modules/auth/account/guards/is-tenant-admin.guard';
+import { AuthenticationGuard } from '../../../auth/common/decorators/authentication.decorator';
+import { IsTenantAdminGuard } from '../../../auth/account/guards/is-tenant-admin.guard';
 
 @ApiTags('Webhooks - Admin')
 @Controller('admins/webhooks')

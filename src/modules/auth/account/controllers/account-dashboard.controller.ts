@@ -3,7 +3,7 @@ import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { AuthenticationGuard } from '../../common/decorators/authentication.decorator';
 import { AccountDashboardApiService } from './account-dashboard-api.service';
 import { IsSuperAdminGuard } from '../guards/is-super-admin.guard';
-import { DashboardAccountResetPasswordDto } from 'src/modules/auth/account/dtos/dashboard-account-reset-password.dto';
+import { DashboardAccountResetPasswordDto } from '../dtos/dashboard-account-reset-password.dto';
 import { Types } from 'mongoose';
 
 @ApiTags('Account - Dashboard')

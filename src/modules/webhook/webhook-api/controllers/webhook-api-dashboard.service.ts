@@ -3,7 +3,7 @@ import { UpdateWebhookDto } from '../dtos/update-webhook.dto';
 import { Types } from 'mongoose';
 import { WebhookService } from '../../webhook/services/webhook.service';
 import { CreateWebhookDashboardDto } from '../dtos/create-webhook-dashboard.dto';
-import { TenantGetterService } from 'src/modules/tenant/tenant/services/tenant-getter.service';
+import { TenantGetterService } from '../../../tenant/tenant/services/tenant-getter.service';
 import { WebhookDashboardFilter } from '../dtos/webhook-dashboard-filter.dto';
 import { CreateWebhookQueueDto } from '../dtos/create-webhook-queue.dto';
 import { WebhookQueueCreatorService } from '../../webhook/services/webhook-queue-creator.service';

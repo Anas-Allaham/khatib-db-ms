@@ -16,8 +16,8 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AuthenticationGuard } from 'src/modules/auth/common/decorators/authentication.decorator';
-import { IsTenantAdminGuard } from 'src/modules/auth/account/guards/is-tenant-admin.guard';
+import { AuthenticationGuard } from '../../auth/common/decorators/authentication.decorator';
+import { IsTenantAdminGuard } from '../../auth/account/guards/is-tenant-admin.guard';
 import { UploadImageDto } from '../dtos/upload-image.dto';
 import { ImageResponseDto } from '../dtos/image-response.dto';
 import { ImageService } from '../services/image.service';

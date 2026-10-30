@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { HashService } from 'src/common/services/hash.service';
-import { AccountGetterService } from 'src/modules/account/services/account-getter.service';
+import { HashService } from '../../../../common/services/hash.service';
+import { AccountGetterService } from '../../../account/services/account-getter.service';
 import { AccountLoginDto } from '../dtos/account-login.dto';
-import { AccountDto } from 'src/modules/account/dtos/account.dto';
+import { AccountDto } from '../../../account/dtos/account.dto';
 
 @Injectable()
 export class AccountPasswordVerifierService {
