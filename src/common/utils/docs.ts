@@ -31,7 +31,8 @@ export async function setupRedoc(app: INestApplication) {
 
 
   NestjsRedoxModule.setup('docs', app, document, {
-    standalone: true, // Self-host Redoc assets (privacy/offline friendly)
+    // Self-host Redoc assets (privacy/offline friendly). Vercel doesn't bundle node_modules/redoc/bundles, so use the CDN there.
+    standalone: !process.env.VERCEL,
   }, redocOptions);
 }
 
